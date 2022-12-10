@@ -13,31 +13,29 @@ export function ProductList() {
     return (
         <div >
             <div className={styles.row}>Products List</div>
-            <div className={styles.row}>
-
-                <div id="productList">
-                <table >
-                    <thead>
-                    <tr>
-                        <th>Product</th>
-                        <th>Price</th>
-                        <th>Add to basket</th>
-
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {Object.keys(products).map(name =>
-                    <tr id={name}>
-                        <td>{name} </td>
-                        <td>{products[name]}</td>
-                        <button className={styles.button}
-                        onClick={() => dispatch(addToCart(name))}> Add to basket</button>
-                    </tr>
-                    )}
-                    </tbody>
-
-                </table>
-
+                <div className={styles.row}>
+                    <div id="productList">
+                        <table >
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Price</th>
+                                    <th>Add to basket</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {Object.keys(products).map(name =>
+                                <tr key={name} >
+                                    <td>{name} </td>
+                                    <td>{products[name]}</td>
+                                    <td>
+                                        <button className={styles.button} id={name}
+                                        onClick={() => dispatch(addToCart(name))}> Add to basket</button>
+                                    </td>
+                                </tr>
+                                )}
+                            </tbody>
+                        </table>
                 </div>
             </div>
         </div>

@@ -32,12 +32,14 @@ export function Basket() {
                     </thead>
                     <tbody>
                     {Object.keys(cart).map(name =>
-                    <tr id={name}>
+                    <tr key={name}>
                         <td>{name}</td>
                         <td>{products[name]}</td>
                         <td>
                             <button className={styles.button} onClick={() => dispatch(removeFromCart(name))}> - </button>
+
                             {cart[name]}
+
                             <button className={styles.button} onClick={() => dispatch(addToCart(name))}> + </button>
                         </td>
                         <td>{products[name] * cart[name]}</td>
@@ -45,10 +47,10 @@ export function Basket() {
                     </tr>
                     )}</tbody>
                     <tfoot>
-                    <tr>
-                        <td>Total basket price: {totalBasketPrice()}</td>
-
-                    </tr></tfoot>
+                        <tr>
+                            <td>Total basket price: {totalBasketPrice()} </td>
+                        </tr>
+                    </tfoot>
 
                 </table>
 
