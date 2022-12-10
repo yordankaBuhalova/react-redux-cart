@@ -21,6 +21,7 @@ export function Basket() {
         <div>
             <div className={styles.row}>Shopping Basket</div>
                 <table >
+                    <thead>
                     <tr>
                         <th>Product</th>
                         <th>Unit Price</th>
@@ -28,10 +29,11 @@ export function Basket() {
                         <th>Total price</th>
                         <th>Remove</th>
                     </tr>
-
+                    </thead>
+                    <tbody>
                     {Object.keys(cart).map(name =>
                     <tr id={name}>
-                        <td>{name} </td>
+                        <td>{name}</td>
                         <td>{products[name]}</td>
                         <td>
                             <button className={styles.button} onClick={() => dispatch(removeFromCart(name))}> - </button>
@@ -41,11 +43,12 @@ export function Basket() {
                         <td>{products[name] * cart[name]}</td>
                         <td><button className={styles.button}onClick={() => dispatch(removeProductFromCart(name))}> X </button></td>
                     </tr>
-                    )}
+                    )}</tbody>
+                    <tfoot>
                     <tr>
-                        <th>Total basket price: </th> {totalBasketPrice()}
+                        <td>Total basket price: {totalBasketPrice()}</td>
 
-                    </tr>
+                    </tr></tfoot>
 
                 </table>
 

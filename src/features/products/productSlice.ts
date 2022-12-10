@@ -16,15 +16,21 @@ export const productSlice = createSlice({
     initialState,
     reducers: {
         addProducts: (state, action: PayloadAction<string> ) => {
-            let productList = action.payload.split(',');
+            let data = action.payload
 
-            let myRecord: Record<string, number> = {};
-
-            for (var i=0; i < productList.length; i=i+2) {
-                myRecord[productList[i].trim()] = parseFloat(productList[i+1])
+            if (data.endsWith(',')){
+                data = data.slice(0, -1)
             }
 
-            state.products = myRecord
+            let productList = data.split(',');
+
+            let newProduct: Record<string, number> = {};
+
+            for (var i=0; i < productList.length; i=i+2) {
+                newProduct[productList[i].trim()] = parseFloat(productList[i+1])
+            }
+
+            state.products = newProduct
         },
     },
 })

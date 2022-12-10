@@ -17,20 +17,24 @@ export function ProductList() {
 
                 <div id="productList">
                 <table >
+                    <thead>
                     <tr>
                         <th>Product</th>
                         <th>Price</th>
                         <th>Add to basket</th>
 
                     </tr>
-
+                    </thead>
+                    <tbody>
                     {Object.keys(products).map(name =>
                     <tr id={name}>
-                        <td>{name} </td><td>{products[name]}</td>
+                        <td>{name} </td>
+                        <td>{products[name]}</td>
                         <button className={styles.button}
                         onClick={() => dispatch(addToCart(name))}> Add to basket</button>
                     </tr>
                     )}
+                    </tbody>
 
                 </table>
 
