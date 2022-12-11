@@ -1,5 +1,3 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { Product } from './features/products/Product';
 import { ProductList } from './features/products/ProductsLIst';

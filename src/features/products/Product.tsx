@@ -14,7 +14,7 @@ export function Product() {
     const onFormChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         const newValue = e.target.value
         const newValueAsArray = newValue.split(",")
-        var format = /[`!@#$%^&*()_+\-=\[\]{};':"\\|<>\/?~]/;
+        const format = /[`!@#$%^&*()_+\-=\[\]{};':"\\|<>\/?~]/;
         var test_res = format.test(newValue)
 
         let validity = ""
