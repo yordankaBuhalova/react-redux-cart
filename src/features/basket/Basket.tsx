@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
 import styles from '.././products/Product.module.css';
 import { getProductsSelector } from '../products/productSlice';

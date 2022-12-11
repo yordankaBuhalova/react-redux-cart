@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useAppSelector, useAppDispatch } from '../../app/hooks'
+import { useAppDispatch } from '../../app/hooks'
 import styles from './Product.module.css';
 import { addProducts } from './productSlice'
 import { enableMapSet } from 'immer'
@@ -14,19 +14,19 @@ export function Product() {
     const onFormChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         const newValue = e.target.value
         const newValueAsArray = newValue.split(",")
-        const format = /[`!@#$%^&*()_+\-=\[\]{};':"\\|<>\/?~]/;
+        const format = /[`!@#$%^&*()_+\-=[\]{};':"\\|<>/?~]/;
         var test_res = format.test(newValue)
 
         let validity = ""
         if (test_res) {
             validity = "Input must contain letters, numbers, commas and dots only!"
         }
-        else if(newValueAsArray.length%2 != 0) {
+        else if(newValueAsArray.length%2 !== 0) {
             validity = "Input must consist of one or more products and their prices, separated by a comma!"
         }
 
         for (let i=0; i < newValueAsArray.length; i++) {
-            if(i%2 == 0) {
+            if(i%2 === 0) {
                 if (/\d/.test(newValueAsArray[i]))
                     validity = "Product names cannot contain numbers"
             } else {

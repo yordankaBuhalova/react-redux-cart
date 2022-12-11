@@ -22,7 +22,7 @@ export const basketSlice = createSlice({
             }
         },
         removeFromCart: (state, action: PayloadAction<string> ) => {
-            if(state.cart[action.payload] == 0) {
+            if(state.cart[action.payload] === 0) {
 
                 delete state.cart[action.payload]
             }
